@@ -12,44 +12,66 @@
 
  :root {
   /* colors */
-  --link-color: #035fe6;
+  --color-white: #fff;
+  --color-gray: #E8E8E8;
+  --color-black: #000;
+  --color-red: #F4364C;
+  --color-teal: #9CDBD9;
+  --color-blue: #0047BB;
+  --link-color: var(--color-blue);
   --link-hover-color: #136ff6;
-  --background-color: #fff;
-  --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
-  --text-color: #000;
+  --background-color: var(--color-white);
+  --overlay-background-color: var(--color-blue);
+  --overlay-text-color: var(--color-white);
+  --highlight-background-color: var(--color-gray);
+  --text-color: var(--color-black);
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family: 'Figtree', 'Figtree-fallback', sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
+  --body-font-size-xxs: 10px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xxl: 22px;
+  --heading-font-size-xl: 22px;
+  --heading-font-size-l: 20px;
+  --heading-font-size-m: 18px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 14px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 76px;
 
 }
 
+@media (min-width: 1000px) {
+  :root {
+    --nav-height: 114px;
+  }
+}
+
+/* fallback font for Figtree */
+@font-face {
+  font-family: 'Figtree-fallback';
+  size-adjust: 100.3%;
+  src: local('Arial');
+}
+
 body {
-  font-size: var(--body-font-size-m);
-  margin: 0;
-  font-family: var(--body-font-family);
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
   display: none;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 1.275;
 }
 
 body.appear {
@@ -113,6 +135,7 @@ a.button:any-link, button {
   box-sizing: border-box;
   text-decoration: none;
   border: 2px solid transparent;
+  max-width: 100%;
   padding: 5px 30px;
   text-align: center;
   font-style: normal; 

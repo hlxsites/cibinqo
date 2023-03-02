@@ -13,7 +13,8 @@
  :root {
   /* colors */
   --color-white: #fff;
-  --color-gray: #E8E8E8;
+  --color-gray-light: #E8E8E8;
+  --color-gray: #ccc;
   --color-black: #000;
   --color-red: #F4364C;
   --color-teal: #9CDBD9;

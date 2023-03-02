@@ -18,8 +18,10 @@
   --color-red: #F4364C;
   --color-teal: #9CDBD9;
   --color-blue: #0047BB;
+
+  /* ===================== */
   --link-color: var(--color-blue);
-  --link-hover-color: #136ff6;
+  --link-hover-color: var(--link-color);
   --background-color: var(--color-white);
   --overlay-background-color: var(--color-blue);
   --overlay-text-color: var(--color-white);
@@ -27,8 +29,17 @@
   --text-color: var(--color-black);
 
   /* fonts */
-  --body-font-family: 'Figtree', 'Figtree-fallback', sans-serif;
-  --heading-font-family: var(--body-font-family);
+  --black-font: 'Proxima Nova Black', 'Proxima Nova Black fallback', sans-serif;
+  --extrabold-font: 'Proxima Nova Extrabold', 'Proxima Nova Extrabold fallback', sans-serif;
+  --bold-font: 'Proxima Nova Bold', 'Proxima Nova Bold fallback', sans-serif;
+  --semibold-font: 'Proxima Nova Semibold', 'Proxima Nova Semibold fallback', sans-serif;
+  --medium-font: 'Proxima Nova Medium', 'Proxima Nova Medium fallback', sans-serif;
+  --regular-font: 'Proxima Nova Regular', 'Proxima Nova Regular fallback', sans-serif;
+  --thin-font: 'Proxima Nova Thin', 'Proxima Nova Thin fallback', sans-serif;
+
+  /* ===================== */
+  --body-font-family: var(--regular-font);
+  --heading-font-family: var(--extrabold-font);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
@@ -56,10 +67,64 @@
   }
 }
 
-/* fallback font for Figtree */
+/* fallback fonts */
 @font-face {
-  font-family: 'Figtree-fallback';
-  size-adjust: 100.3%;
+  font-family: 'Proxima Nova Black fallback';
+  size-adjust: 104.941%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Extrabold fallback';
+  size-adjust: 103.111%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold fallback';
+  size-adjust: 101.2%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Semibold fallback';
+  size-adjust: 99.619%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Medium fallback';
+  size-adjust: 98.559%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Regular fallback';
+  size-adjust: 97.529%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Thin fallback';
+  size-adjust: 94.4%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'FS Albert Bold fallback';
+  size-adjust: 97.669%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'FS Albert Regular fallback';
+  size-adjust: 93.389%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: 'icomoon fallback';
+  size-adjust: 100.631%;
   src: local('Arial');
 }
 
@@ -104,7 +169,12 @@ p, dl, ol, ul, pre, blockquote {
   margin-bottom: 1em;
 }
 
+strong {
+  font-family: var(--extrabold-font);
+}
+
 a:any-link {
+  font-family: var(--extrabold-font);
   color: var(--link-color);
   text-decoration: none;
 }
@@ -128,9 +198,8 @@ pre {
 }
 
 /* buttons */
-
 a.button:any-link, button {
-  font-family: var(--body-font-family);
+  font-family: var(--extrabold-font);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;

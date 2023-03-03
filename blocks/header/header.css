@@ -1,4 +1,4 @@
-/* header and nav layout */
+/* stylelint-disable no-descending-specificity */
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -46,7 +46,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: var(--link-color);
+  color: inherit;
 }
 
 header nav a:hover {
@@ -105,7 +105,6 @@ header nav[aria-expanded=false] .nav-hamburger-icon,
 header nav[aria-expanded=false] .nav-hamburger-icon::before,
 header nav[aria-expanded=false] .nav-hamburger-icon::after {
   height: 2px;
-  border-radius: 2px;
   background: currentcolor;
 }
 
@@ -172,7 +171,6 @@ header nav .nav-brand .icon {
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
-  /* flex: 1 1 auto; */
   display: none;
   visibility: hidden;
   background-color: var(--background-color);
@@ -186,6 +184,10 @@ header nav .nav-sections {
 header nav[aria-expanded=true] .nav-sections {
   display: block;
   visibility: visible;
+}
+
+header nav .nav-sections .icon {
+  font-size: var(--heading-font-size-m);
 }
 
 header nav .nav-sections a {
@@ -209,6 +211,24 @@ header nav .nav-sections .nav-drop > .icon-chevron-down {
 
 header nav .nav-sections .nav-drop[aria-expanded=true] > .icon-chevron-down {
   transform: rotate(180deg);
+}
+
+header nav .nav-sections ul > li.nav-overlay {
+  background-color: var(--overlay-background-color);
+  color: var(--overlay-text-color);
+  border: 0;
+}
+
+header nav .nav-sections  ul > li.nav-overlay a:hover,
+header nav .nav-sections  ul > li.nav-overlay a:focus,
+header nav .nav-sections > ul > li.nav-overlay:hover,
+header nav .nav-sections > ul > li.nav-overlay:focus,
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] {
+  color: var(--color-white);
+}
+
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] > ul {
+  box-shadow: none;
 }
 
 header nav .nav-sections > ul > li {
@@ -305,8 +325,22 @@ header nav .nav-sections > ul > li[aria-expanded=true] > ul > li a:focus {
     font-weight: 500;
   }
 
+  header nav .nav-sections > ul > li:nth-child(n+3)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 1px;
+    background-color: var(--color-gray);
+  }
+
   header nav .nav-sections > ul > li[aria-expanded=true] {
+    border-bottom: 1px solid;
     padding-bottom: 10px;
+    color: var(--color-red);
+    font-weight: 800;
   }
 
   header nav .nav-sections > ul > li:first-of-type {
@@ -318,15 +352,20 @@ header nav .nav-sections > ul > li[aria-expanded=true] > ul > li a:focus {
     border-bottom: 0;
   }
 
+  header nav .nav-sections > ul > li:not(.nav-overlay):last-of-type {
+    display: block !important;
+    visibility: visible !important;
+    background-color: gold;
+  }
+
+  header nav .nav-sections ul > li.nav-overlay {
+    display: none;
+    visibility: hidden;
+  }
+
   header nav .nav-sections > ul > li > ul {
     display: none;
     position: relative;
-  }
-
-  header nav .nav-sections > ul > li[aria-expanded=true] {
-    border-bottom: 1px solid;
-    color: var(--color-red);
-    font-weight: 800;
   }
 
   header nav .nav-sections > ul > li[aria-expanded=true] > ul {
@@ -364,45 +403,5 @@ header nav .nav-sections > ul > li[aria-expanded=true] > ul > li a:focus {
 
   header nav .nav-sections > ul > li > ul > li:last-of-type {
     border-bottom: 0;
-  }
-}
-
-/* menu */
-header nav .nav-menu {
-  grid-area: menu;
-  display: none;
-  visibility: hidden;
-  background-color: var(--overlay-background-color);
-  color: var(--overlay-text-color);
-  text-align: center;
-  text-transform: uppercase;
-  font-family: var(--semibold-font);
-  font-size: var(--body-font-size-xs);
-}
-
-header nav[aria-expanded=true] .nav-menu {
-  display: block;
-  visibility: visible;
-}
-
-header nav .nav-menu a {
-  color: var(--overlay-text-color);
-  font-family: var(--semibold-font);
-}
-
-header nav .nav-menu .nav-drop > .icon-chevron-down {
-  position: absolute;
-  right: 20px;
-}
-
-header nav .nav-menu > ul > li {
-  padding: 25px 0;
-}
-
-@media (min-width: 1000px) {
-  header nav .nav-menu,
-  header nav[aria-expanded=true] .nav-menu {
-    display: none;
-    visibility: hidden;
   }
 }

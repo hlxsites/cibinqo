@@ -90,7 +90,7 @@ export default async function decorate(block) {
     nav.id = 'nav';
     nav.innerHTML = html;
 
-    const classes = ['brand', 'sections', 'menu'];
+    const classes = ['brand', 'sections'];
     classes.forEach((c, i) => {
       const section = nav.children[i];
       if (section) section.classList.add(`nav-${c}`);
@@ -99,6 +99,7 @@ export default async function decorate(block) {
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
+        // setup nav section dropdowns
         if (navSection.querySelector('ul')) {
           navSection.classList.add('nav-drop');
           const arrow = document.createElement('span');
@@ -110,22 +111,16 @@ export default async function decorate(block) {
             navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           });
         }
-      });
-    }
-
-    const navMenu = nav.querySelector('.nav-menu');
-    if (navMenu) {
-      navMenu.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) {
-          navSection.classList.add('nav-drop');
-          const arrow = document.createElement('span');
-          arrow.className = 'icon-chevron-down';
-          navSection.prepend(arrow);
-          navSection.addEventListener('click', () => {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            toggleAllNavSections(navMenu);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          });
+        // setup overlay styled nav sections
+        if (navSection.querySelector('strong')) {
+          navSection.classList.add('nav-overlay');
+          const strong = navSection.querySelector('strong');
+          if (strong.querySelector('a')) {
+            strong.replaceWith(strong.querySelector('a'));
+          } else {
+            const text = document.createTextNode(strong.textContent);
+            strong.replaceWith(text);
+          }
         }
       });
     }

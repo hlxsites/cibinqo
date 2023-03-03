@@ -218,11 +218,19 @@ header nav .nav-sections ul > li.nav-overlay {
   border: 0;
 }
 
-header nav .nav-sections  ul > li.nav-overlay a:hover,
-header nav .nav-sections  ul > li.nav-overlay a:focus,
-header nav .nav-sections > ul > li.nav-overlay:hover,
-header nav .nav-sections > ul > li.nav-overlay:focus,
-header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] {
+header nav .nav-sections ul > li.nav-overlay a {
+  color: var(--overlay-text-color)
+}
+
+header nav .nav-sections  ul > li.nav-overlay,
+header nav .nav-sections > ul > li.nav-overlay a:hover,
+header nav .nav-sections > ul > li.nav-overlay a:focus,
+header nav .nav-sections > ul > li.nav-overlay.nav-drop:hover,
+header nav .nav-sections > ul > li.nav-overlay.nav-drop:focus,
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] > ul > li a:hover,
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] > ul > li a:focus,
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true],
+header nav .nav-sections > ul > li.nav-overlay[aria-expanded=true] a {
   color: var(--color-white);
 }
 
@@ -235,8 +243,8 @@ header nav .nav-sections > ul > li {
   padding: 25px 0;
 }
 
-header nav .nav-sections > ul > li:hover,
-header nav .nav-sections > ul > li:focus {
+header nav .nav-sections > ul > li.nav-drop:hover,
+header nav .nav-sections > ul > li.nav-drop:focus {
   color: var(--color-red);
 }
 

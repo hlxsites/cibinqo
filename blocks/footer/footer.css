@@ -1,7 +1,8 @@
 footer {
-  padding: 2rem;
+  padding: 40px 15px;
   background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+  color: var(--overlay-text-color);
+  font-size: var(--body-font-size-xs);
 }
 
 footer .footer {
@@ -11,4 +12,85 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
+}
+
+footer .footer a:any-link {
+  color: inherit;
+  font-family: var(--regular-font);
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+footer .footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+@media (min-width: 1000px) {
+  footer .footer > div {
+    display: grid;
+    grid-template:
+      'logo disclaimer links' auto
+      'logo disclaimer copyright' auto / auto 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* links */
+footer .footer .footer-links {
+  grid-area: links;
+  flex-basis: 100%;
+}
+
+footer .footer .footer-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+}
+
+footer .footer .footer-links a:any-link {
+  text-decoration: underline;
+}
+
+/* disclaimer */
+footer .footer .footer-disclaimer {
+  grid-area: disclaimer;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+footer .footer .footer-disclaimer p {
+  max-width: 37ch;
+}
+
+footer .footer .footer-disclaimer p:not(:last-of-type) {
+  padding-bottom: 25px;
+}
+
+@media (min-width: 1000px) {
+  footer .footer .footer-disclaimer p {
+    max-width: unset;
+  }  
+}
+
+/* copyright */
+footer .footer .footer-copyright {
+  grid-area: copyright;
+  /* flex-basis: 100%; */
+}
+
+/* logo */
+footer .footer .footer-logo {
+  grid-area: logo;
+}
+
+footer .footer .footer-logo .icon svg {
+  display: flex;
+  width: 115px;
+  height: auto;
 }

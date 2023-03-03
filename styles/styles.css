@@ -178,6 +178,7 @@ a:any-link {
   font-family: var(--extrabold-font);
   color: var(--link-color);
   text-decoration: none;
+  word-break: break-word;
 }
 
 a:hover {

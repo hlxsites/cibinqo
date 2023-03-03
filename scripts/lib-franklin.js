@@ -152,17 +152,7 @@ export async function decorateIcons(element) {
         }
         // Styled icons don't play nice with the sprite approach because of shadow dom isolation
         const svg = await response.text();
-        if (svg.match(/(<style | class=)/)) {
-          ICONS_CACHE[iconName] = { styled: true, html: svg };
-        } else {
-          ICONS_CACHE[iconName] = {
-            html: svg
-              .replace('<svg', `<symbol id="icons-sprite-${iconName}"`)
-              .replace(/ width=".*?"/, '')
-              .replace(/ height=".*?"/, '')
-              .replace('</svg>', '</symbol>'),
-          };
-        }
+        ICONS_CACHE[iconName] = { styled: !!svg.match(/(<style | class=)/), html: svg };
       } catch (err) {
         ICONS_CACHE[iconName] = false;
         // eslint-disable-next-line no-console
@@ -171,18 +161,15 @@ export async function decorateIcons(element) {
     }
   }));
 
+  console.log(ICONS_CACHE);
+
   const symbols = Object.values(ICONS_CACHE).filter((v) => !v.styled).map((v) => v.html).join('\n');
   svgSprite.innerHTML += symbols;
 
   icons.forEach((span) => {
     const iconName = Array.from(span.classList).find((c) => c.startsWith('icon-')).split('-')[1];
     const parent = span.firstElementChild?.tagName === 'A' ? span.firstElementChild : span;
-    // Styled icons need to be inlined as-is, while unstyled ones can leverage the sprite
-    if (ICONS_CACHE[iconName].styled) {
-      parent.innerHTML = ICONS_CACHE[iconName].html;
-    } else {
-      parent.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"><use href="#icons-sprite-${iconName}"/></svg>`;
-    }
+    parent.innerHTML = ICONS_CACHE[iconName].html;
   });
 }
 

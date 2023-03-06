@@ -1,40 +1,94 @@
-/* block specific CSS goes here */
+main .hero-container {
+  padding: 0;
+}
 
 main .hero-container > div {
-    max-width: unset;
+  max-width: unset;
 }
-  
-main .hero-container {
-    padding: 0;
-}
-  
+
 main .hero {
-    position: relative;
-    padding: 32px;
-    min-height: 300px;
+  position: relative;
 }
-
-main .hero h1 {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-}
-
 
 main .hero picture {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    object-fit: cover;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
 }
 
 main .hero img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+main .hero > div > div {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 450px;
+}
+
+@media (min-width: 800px) {
+  main .hero > div > div {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 800px) {
+  main .hero > div > div {
+    min-height: 430px;
+  }
+}
+
+/* image */
+main .hero .hero-image {
+  margin: 0;
+}
+
+/* text */
+main .hero .hero-text {
+  position: relative;
+  padding: 10px 25px 50px;
+  background-color: #F8F7F7cc; /* this color matches the fill in the hero-wave.svg */
+  color: var(--color-blue);
+  font-family: var(--bold-font);
+  font-size: var(--body-font-size-xs);
+  text-align: center;
+}
+
+main .hero .hero-text::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 10vw;
+  background-image: url('./hero-wave.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+@media (min-width: 800px) {
+  main .hero .hero-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 40px 50px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1000px) {
+  main .hero .hero-text {
+    gap: 66px;
+    padding: 10px 66px 50px;
+    font-size: var(--body-font-size-l);
+    line-height: 25px;
+  }
 }

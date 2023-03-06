@@ -44,6 +44,7 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
+  --body-font-size-l: 23px;
   --body-font-size-m: 18px;
   --body-font-size-s: 16px;
   --body-font-size-xs: 14px;
@@ -201,28 +202,28 @@ pre {
 
 /* buttons */
 a.button:any-link, button {
-  font-family: var(--extrabold-font);
-  display: inline-block;
   box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
+  display: inline-block;
   max-width: 100%;
-  padding: 5px 30px;
-  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  padding: 13px 21px;
+  background-color: var(--color-teal);
+  color: var(--link-color);
+  font-family: var(--extrabold-font);
+  font-size: var(--body-font-size-s);
   font-style: normal; 
   font-weight: 600;
-  cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+  /* background-color: var(--link-hover-color); */
   cursor: pointer;
 }
 
@@ -237,6 +238,9 @@ a.button.secondary, button.secondary {
   color: var(--text-color)
 } 
 
+.button-container {
+  margin: 0;
+}
 
 main input {
   font-size: 1.25rem;

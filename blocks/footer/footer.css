@@ -6,7 +6,7 @@ footer {
 }
 
 footer .footer {
-  max-width: 1200px;
+  max-width: 973px;
   margin: auto;
 }
 
@@ -36,7 +36,7 @@ footer .footer > div {
     display: grid;
     grid-template:
       'logo disclaimer links' auto
-      'logo disclaimer copyright' auto / auto 1fr 1fr;
+      'logo disclaimer copyright' 1fr / auto 41.667% 1fr;
     gap: 30px;
   }
 }

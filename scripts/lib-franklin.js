@@ -161,8 +161,6 @@ export async function decorateIcons(element) {
     }
   }));
 
-  console.log(ICONS_CACHE);
-
   const symbols = Object.values(ICONS_CACHE).filter((v) => !v.styled).map((v) => v.html).join('\n');
   svgSprite.innerHTML += symbols;
 

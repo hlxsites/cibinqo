@@ -3,6 +3,7 @@ import {
   buildBlock,
   loadHeader,
   loadFooter,
+  createOptimizedPicture,
   decorateButtons,
   decorateIcons,
   decorateSections,
@@ -53,6 +54,21 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+
+  const sections = [...main.querySelectorAll('.section')];
+  sections.forEach((section) => {
+    const { background } = section.dataset;
+    if (background) {
+      const devices = ['mobile', 'desktop'];
+      const bgs = background.split(',');
+      bgs.forEach((bg, i) => {
+        const picture = createOptimizedPicture(bg);
+        picture.className = 'section-background';
+        if (bgs.length > 1) picture.classList.add(`section-background-${devices[i]}`);
+        section.prepend(picture);
+      });
+    }
+  });
 }
 
 /**

@@ -30,7 +30,7 @@ main .hero img {
 main .hero > div > div {
   display: grid;
   grid-template-rows: 1fr auto;
-  min-height: 450px;
+  min-height: 550px;
 }
 
 @media (min-width: 800px) {
@@ -53,7 +53,7 @@ main .hero .hero-image {
 /* text */
 main .hero .hero-text {
   position: relative;
-  padding: 10px 25px 50px;
+  padding: 10px 25px 64px;
   background-color: #F8F7F7cc; /* this color matches the fill in the hero-wave.svg */
   color: var(--color-blue);
   font-family: var(--bold-font);
@@ -87,8 +87,8 @@ main .hero .hero-text::before {
 @media (min-width: 1000px) {
   main .hero .hero-text {
     gap: 66px;
-    padding: 10px 66px 50px;
-    font-size: var(--body-font-size-l);
+    padding: 10px 66px 64px;
+    font-size: var(--body-font-size-xl);
     line-height: 25px;
   }
 }

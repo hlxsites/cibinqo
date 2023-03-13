@@ -41,7 +41,7 @@ export default function decorate(block) {
   // create toggle button
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
-  button.innerHTML = '<span class="icon icon-arrow_downward"></span>';
+  button.innerHTML = '<span class="icon icon-arrow_upward"></span>';
   button.addEventListener('click', () => {
     const expanded = [...block.classList].includes('expanded');
     if (expanded) block.classList.remove('expanded');

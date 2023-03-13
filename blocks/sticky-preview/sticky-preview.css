@@ -1,0 +1,126 @@
+main .sticky-preview {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  padding: 17px 25px 8px;
+  background-color: var(--background-color);
+  font-size: var(--body-font-size-xs);
+  transition: height .2s;
+  z-index: 99;
+}
+
+main .sticky-preview.expanded {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+main .sticky-preview.expanded::-webkit-scrollbar {
+  width: 4px;
+}
+
+main .sticky-preview.expanded::-webkit-scrollbar-track {
+  background: var(--color-gray); 
+}
+ 
+main .sticky-preview.expanded::-webkit-scrollbar-thumb {
+  background: var(--link-color); 
+}
+
+main .sticky-preview.expanded::-webkit-scrollbar-thumb:hover {
+  background: var(--link-hover-color); 
+}
+
+main .sticky-preview[aria-hidden=true] {
+  display: none;
+  visibility: hidden;
+}
+
+@media (min-width: 800px) {
+  main .sticky-preview {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+@media (min-width: 1000px) {
+  main .sticky-preview {
+    height: 20vh;
+  }
+
+  main .sticky-preview.expanded {
+    height: 75vh;
+  }
+}
+
+main .sticky-preview strong {
+  font-family: var(--bold-font);
+}
+
+main .sticky-preview > div > div {
+  visibility: hidden;
+  display: none;
+}
+
+main .sticky-preview > div > .sticky-preview-default {
+  visibility: visible;
+  display: unset;
+}
+
+@media (min-width: 1000px) {
+  main .sticky-preview > div {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  main .sticky-preview > div > div {
+    min-width: 0;
+    visibility: visible;
+    display: unset;
+  }
+}
+
+main .sticky-preview button {
+  position: absolute;
+  top: 12px;
+  right: 25px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xl);
+  cursor: pointer;
+}
+
+main .sticky-preview button span {
+  transition: transform .2s;
+}
+
+main .sticky-preview.expanded button span {
+  transform: rotate(180deg);
+}
+
+main .sticky-preview .sticky-preview-heading {
+  color: var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+}
+
+main .sticky-preview .sticky-preview-heading + p {
+  margin-top: .5em;
+}
+
+@media (min-width: 800px) {
+  main .sticky-preview .sticky-preview-heading {
+    font-size: var(--heading-font-size-l);
+  }
+}
+
+@media (min-width: 1000px) {
+  main .sticky-preview .sticky-preview-heading {
+    font-size: var(--heading-font-size-xs);
+  }
+}

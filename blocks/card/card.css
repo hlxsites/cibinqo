@@ -1,0 +1,44 @@
+.card {
+  max-width: 320px;
+  margin: 32px auto;
+  border-radius: 24px;
+  padding: 16px;
+  background-color: var(--background-color);
+  color: var(--link-color);
+  font-family: var(--semibold-font);
+  box-shadow: 0 0 5px 0 #0004;
+}
+
+@media (min-width: 800px) {
+  .card {
+    max-width: 517px;
+    padding: 16px 32px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .card {
+    max-width: 874px;
+    padding: 16px 64px;
+  }
+
+  .card h2 {
+    font-size: var(--heading-font-size-l);
+  }
+}
+
+.card figure {
+  margin: 24px 0;
+}
+
+.card figure img {
+  display: block;
+  width: 100%;
+}
+
+.card figure figcaption {
+  padding: 24px;
+  background-color: var(--overlay-background-color);
+  color: var(--overlay-text-color);
+  font-size: var(--body-font-size-s);
+}

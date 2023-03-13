@@ -90,7 +90,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 40px;
+  width: 100%;
 }
 
 header nav .nav-hamburger-icon::before,

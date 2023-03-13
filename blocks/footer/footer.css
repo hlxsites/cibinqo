@@ -81,7 +81,6 @@ footer .footer .footer-disclaimer p:not(:last-of-type) {
 /* copyright */
 footer .footer .footer-copyright {
   grid-area: copyright;
-  /* flex-basis: 100%; */
 }
 
 /* logo */
